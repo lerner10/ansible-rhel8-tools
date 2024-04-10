@@ -5,7 +5,22 @@
     state: present
 - name: Add user permission
 
-- name: Add user to wireshark group
-  user:
-    name: {{ username }}
-    groups: wireshark
+# For adding all users to on the machine to wireshark gruop (not including system users):
+- name: Gather list of existing users
+  command: getent passwd
+  register: existing_users
+  changed_when: false
+
+- name: Add non-system users to the Wireshark group
+  command: usermod -aG wireshark "{{ item.split(':')[0] }}"
+  with_items: "{{ existing_users.stdout_lines }}"
+  when: "'wireshark' not in item and item.split(':')[2] | int > 999"  
+
+
+
+
+
+# - name: Add user to wireshark group
+#   user:
+#     name: "{{ username }}"
+#     groups: wireshark
