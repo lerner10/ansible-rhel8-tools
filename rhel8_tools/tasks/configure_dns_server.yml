@@ -1,3 +1,9 @@
+- name: Stop NetworkManager service
+  service:
+    name: NetworkManager
+    enabled: false
+    state: stopped
+
 - name: Configure dns server
   copy:
     content: nameserver 52.22.204.22

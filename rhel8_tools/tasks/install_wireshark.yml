@@ -3,3 +3,9 @@
   package:
     name: wireshark
     state: present
+- name: Add user permission
+
+- name: Add user to wireshark group
+  user:
+    name: {{ username }}
+    groups: wireshark
