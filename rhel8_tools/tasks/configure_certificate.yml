@@ -1,0 +1,8 @@
+---
+- name: Copy matas certificate
+  ansible.builtin.copy:
+    src: files/matas.pem
+    dest: /usr/share/pki/ca-trust-source/anchors/matas.pem
+    
+- name: update ca-certificate chain
+  ansible.builtin.shell: update-ca-trust

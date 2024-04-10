@@ -1,0 +1,23 @@
+---
+- name: Install PyCharm IDE
+  get_url:
+    url: https://download.jetbrains.com/python/pycharm-community-2021.3.3.tar.gz
+    dest: /opt/pycharm-community-2021.3.3.tar.gz
+
+- name: Extract PyCharm IDE
+  unarchive:
+    src: /opt/pycharm-community-2021.3.3.tar.gz
+    dest: /opt/
+    remote_src: yes
+
+- name: Create symbolic link for PyCharm executable
+  file:
+    src: /opt/pycharm-community-2021.3.3/bin/pycharm.sh
+    dest: /usr/local/bin/pycharm
+    mode: u+x
+    state: link
+  
+- name: Copy PyCharm desktop launcher
+  ansible.builtin.copy:
+    src: files/pycharm.desktop
+    dest: /usr/share/applications/pycharm.desktop

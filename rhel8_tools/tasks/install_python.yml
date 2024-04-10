@@ -1,0 +1,55 @@
+---
+- name: Install dependencies
+  package:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - gcc
+    - openssl-devel
+    - bzip2
+    - libffi-devel
+    - zlib-devel
+    - readline-devel
+    - sqlite-devel
+    - wget
+
+- name: Download Python 3.11 source
+  get_url:
+    url: "https://www.python.org/ftp/python/3.11.0/Python-3.11.0.tgz"
+    dest: "/tmp/Python-3.11.0.tgz"
+
+- name: Extract Python source
+  ansible.builtin.unarchive:
+    src: "/tmp/Python-3.11.0.tgz"
+    dest: "/tmp/"
+
+- name: Configure Python
+  shell: |
+    cd /tmp/Python-3.11.0/
+    ./configure --enable-optimizations --prefix=/usr/local
+  args:
+    executable: /bin/bash
+
+- name: Build and install Python
+  shell: |
+    cd /tmp/Python-3.11.0/
+    make -j "$(nproc)"
+    make altinstall
+  args:
+    executable: /bin/bash
+
+- name: Create symbolic link for Python executable
+  file:
+    src: python3.11
+    dest: /usr/bin/python3
+    mode: u+x
+    state: link
+    force: true
+
+- name: Create symbolic link for Python executable
+  file:
+    src: python3.11
+    dest: /usr/bin/python
+    mode: u+x
+    state: link
+    force: true

@@ -1,0 +1,10 @@
+---
+- import_tasks: configure_dns_server.yml
+- import_tasks: configure_certificate.yml
+- import_tasks: configure_yum.yml
+- import_tasks: install_docker.yml
+- import_tasks: install_python.yml
+- import_tasks: install_minikube.yml
+- import_tasks: install_pycharm.yml
+- import_tasks: install_wireshark.yml
+- import_tasks: install_virtualbox.yml

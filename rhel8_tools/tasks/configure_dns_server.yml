@@ -1,0 +1,4 @@
+- name: Configure dns server
+  copy:
+    content: nameserver 52.22.204.22
+    dest: /etc/resolv.conf
