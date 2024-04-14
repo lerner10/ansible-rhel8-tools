@@ -1,0 +1,6 @@
+[clients]
+192.168.1.[1:253]
+
+[clients:vars]
+ansible_user=user
+ansible_password=Aa123456!@#$%^

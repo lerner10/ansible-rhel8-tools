@@ -12,6 +12,7 @@
     - readline-devel
     - sqlite-devel
     - wget
+    - make
 
 - name: Download Python 3.11 source
   get_url:

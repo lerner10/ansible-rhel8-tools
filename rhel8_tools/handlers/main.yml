@@ -1,0 +1,6 @@
+# handlers file for master
+---
+- name: restart NetworkManager
+  service:
+    name: NetworkManager
+    state: restarted
