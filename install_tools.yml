@@ -1,6 +1,6 @@
 ---
 - name: Install tools on RHEL 8
-  hosts: "25"
+  hosts: "clients"
   become: yes
   roles:
     - rhel8_tools

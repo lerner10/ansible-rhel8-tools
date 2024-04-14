@@ -1,4 +1,5 @@
 ---
+- import_tasks: change_desktop_background.yml
 - import_tasks: configure_dns_server.yml
 - import_tasks: configure_certificate.yml
 - import_tasks: configure_yum.yml
