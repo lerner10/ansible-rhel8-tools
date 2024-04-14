@@ -3,7 +3,6 @@
   package:
     name: wireshark
     state: present
-- name: Add user permission
 
 # For adding all users to on the machine to wireshark gruop (not including system users):
 - name: Gather list of existing users
