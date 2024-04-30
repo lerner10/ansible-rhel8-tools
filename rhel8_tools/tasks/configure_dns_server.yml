@@ -5,5 +5,5 @@
     dns4: "52.22.204.22"
     state: present
     dns4_ignore_auto: true
-    #notify:
-    #  - restart NetworkManager
+    notify:
+      - restart NetworkManager
