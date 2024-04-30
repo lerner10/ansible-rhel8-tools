@@ -38,22 +38,34 @@
     make altinstall
   args:
     executable: /bin/bash
-
-- name: Create symbolic link for Python executable
-  file:
+  
+- name: Copy python command to python3
+  copy:
     src: python3.11
     dest: /usr/bin/python3
     mode: u+x
-    state: link
-    force: true
 
-- name: Create symbolic link for Python executable
-  file:
+- name: Copy python command to python
+  copy:
     src: python3.11
     dest: /usr/bin/python
     mode: u+x
-    state: link
-    force: true
+
+# - name: Create symbolic link for Python executable
+#   file:
+#     src: python3.11
+#     dest: /usr/bin/python3
+#     mode: u+x
+#     state: link
+#     force: true
+
+# - name: Create symbolic link for Python executable
+#   file:
+#     src: python3.11
+#     dest: /usr/bin/python
+#     mode: u+x
+#     state: link
+#     force: true
 
 - name: Install ipython
   ansible.builtin.pip:
