@@ -1,1 +1,2 @@
-connection_name: "enp0s3"
+connection_name: "eno1"
+user_password: "B@danala!"

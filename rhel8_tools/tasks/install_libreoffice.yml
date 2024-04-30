@@ -1,0 +1,6 @@
+---
+- name: Install libreoffice
+  yum:
+    name: libreoffice
+    state: present
+

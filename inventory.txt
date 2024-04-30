@@ -1,6 +1,12 @@
 [clients]
-192.168.1.[1:253]
+#192.168.20.66 bodek - ansible not working
+#192.168.1.[1:253]
+192.168.20.74
+#192.168.20.66
+# 76 bodek not work
+#192.168.20.[0:80]
+#192.168.20.60
 
 [clients:vars]
 ansible_user=user
-ansible_password=Aa123456!@#$%^
+ansible_password=B@danala!

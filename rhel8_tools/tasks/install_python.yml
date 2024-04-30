@@ -54,3 +54,7 @@
     mode: u+x
     state: link
     force: true
+
+- name: Install ipython
+  ansible.builtin.pip:
+    name: ipython

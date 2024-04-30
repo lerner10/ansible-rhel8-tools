@@ -1,6 +1,9 @@
 - name: copy image
   ansible.builtin.copy:
-    src: files/desktop_background.jpeg
-    dest: /tmp/desktop_background.jpeg
-- name: Change desktop background
-  shell: gsettings set org.gnome.desktop.background picture-uri 'desktop_background.jpeg'
+          #    src: files/desktop_background.jpeg
+          #    dest: /tmp/desktop_background.jpeg
+    src: files/lockscreen.png
+    dest: /tmp/lockscreen.png
+
+    #- name: Change desktop background
+    #  shell: gsettings set org.gnome.desktop.background picture-uri 'file:///tmp/desktop_background.jpeg'
