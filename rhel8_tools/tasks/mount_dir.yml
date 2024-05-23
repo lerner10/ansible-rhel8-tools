@@ -1,14 +1,20 @@
+---
 - name: create dir
   ansible.builtin.file:
-    path: /mnt/share
+    path: /share
     state: directory
     mode: '0777'
+
 - name: mount share
   ansible.posix.mount:
-    path: /mnt/share
-    src: "192.168.20.69:/share"
+    path: /share
+    src: "192.168.20.73:/share"
     state: mounted
     fstype: nfs
 
-
-    
+    #- name: unmount broken
+    #ansible.posix.mount:
+    #path: /mnt/share
+    #src: "192.168.20.69:/share"
+    #state: absent
+    #fstype: nfs

@@ -1,0 +1,6 @@
+- name: mounting
+  hosts: clients
+  tasks:
+          - name: include
+            ansible.builtin.include_tasks:
+                    file: rhel8_tools/tasks/mount_dir.yaml
